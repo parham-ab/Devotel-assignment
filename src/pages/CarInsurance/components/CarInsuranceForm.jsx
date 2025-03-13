@@ -4,11 +4,12 @@ import PreLoader from "components/common/PreLoader";
 import ErrorPage from "components/ErrorPage";
 import useFetch from "hooks/useFetch";
 import CustomButton from "components/common/CustomButton";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const CarInsuranceForm = () => {
   const { data, loading, error } = useFetch("api/insurance/forms");
   const [formFields, setFormFields] = useState([]);
+  const BASE_URL = import.meta.env.VITE_API_URL;
   const {
     register,
     handleSubmit,
@@ -31,21 +32,18 @@ const CarInsuranceForm = () => {
 
   const onSubmit = async (formData) => {
     try {
-      const response = await fetch(
-        "https://assignment.devotel.io/api/insurance/forms/submit",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${BASE_URL}/api/insurance/forms/submit`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
       if (!response.ok) throw new Error("Failed to submit the application");
       const result = await response.json();
-      toast.success("Successfully toasted!");
+      toast.success(result?.message);
     } catch (error) {
-      console.error("Submission Error:", error.message);
+      toast.error(error?.message);
     }
   };
 
@@ -97,7 +95,7 @@ const CarInsuranceForm = () => {
                   type="radio"
                   value={option}
                   {...register(field.id, validationRules)}
-                  className="w-4 h-4 text-blue-600 focus:ring-blue-500"
+                  className="w-4 h-4"
                 />
                 <span className="text-gray-600">{option}</span>
               </label>
@@ -108,7 +106,7 @@ const CarInsuranceForm = () => {
         {field.type === "select" && (
           <select
             {...register(field.id, validationRules)}
-            className="border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="border border-gray-300 rounded-md p-2 focus:border-transparent"
           >
             <option value="">Select an option</option>
             {options.map((option) => (
@@ -123,7 +121,7 @@ const CarInsuranceForm = () => {
           <input
             type="text"
             {...register(field.id, validationRules)}
-            className="border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="border border-gray-300 rounded-md p-2 focus:border-transparent"
           />
         )}
 
@@ -131,7 +129,7 @@ const CarInsuranceForm = () => {
           <input
             type="number"
             {...register(field.id, validationRules)}
-            className="border border-gray-300 rounded-md p-2 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className="border border-gray-300 rounded-md p-2 focus:border-transparent"
           />
         )}
 
@@ -158,7 +156,7 @@ const CarInsuranceForm = () => {
         <CustomButton
           disabled={isSubmitting}
           type="submit"
-          className="w-full bg-blue-600 text-white p-2 rounded-md cursor-pointer"
+          className="w-full text-white p-2 rounded-md cursor-pointer"
           style={{
             background:
               "linear-gradient(45deg, rgb(29, 153, 255) 0%, rgb(121, 56, 220) 100%)",
@@ -167,7 +165,6 @@ const CarInsuranceForm = () => {
           {isSubmitting ? "submitting..." : "Submit"}
         </CustomButton>
       </form>
-      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
