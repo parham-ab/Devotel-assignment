@@ -7,8 +7,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="flex items-center justify-between p-4 bg-gray-900 text-white">
-      <div className="text-xl font-bold">Insurance Application</div>
+    <header className="flex items-center justify-between p-4 bg-gray-900 text-white select-none">
+      <Link to={"/"} className="text-xl font-bold">
+        Insurance Application
+      </Link>
 
       <nav className="hidden md:flex gap-6">
         {headerMenu.map((item) => (

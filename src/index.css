@@ -1,1 +1,33 @@
 @import "tailwindcss";
+
+input[type="checkbox"] {
+  width: fit-content;
+  border-radius: 30%;
+  cursor: pointer;
+  width: 18px;
+  height: 18px;
+  appearance: none;
+  border: solid 1px #005969;
+  transition: all 0.3s;
+  &:checked {
+    border-radius: 100%;
+    border: none;
+    background-color: #005969;
+    transition: all 0.3s;
+  }
+}
+input[type="radio"] {
+  width: fit-content;
+  border-radius: 100%;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  appearance: none;
+  border: solid 1px #005969;
+  display: inline-block;
+  position: relative;
+  &:checked {
+    border: none;
+    background-color: #005969;
+  }
+}

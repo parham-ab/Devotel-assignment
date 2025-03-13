@@ -17,7 +17,7 @@ const App = () => {
           }
         />
       ))}
-      <Route path="/*" element={<Navigate to="/HomeInsurance" />} />
+      <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   );
 };
