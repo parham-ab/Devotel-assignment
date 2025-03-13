@@ -1,15 +1,20 @@
-import React from "react";
-
 const CustomButton = ({
   onClick = () => {},
   children,
   type,
   className,
   style = {},
+  disabled,
 }) => {
   return (
     <div>
-      <button type={type} onClick={onClick} className={className} style={style}>
+      <button
+        disabled={disabled}
+        type={type}
+        onClick={onClick}
+        className={className}
+        style={style}
+      >
         {children}
       </button>
     </div>
