@@ -11,13 +11,13 @@ const insuranceServices = [
   {
     id: 1,
     title: "Health Insurance",
-    icon: FaCar,
+    icon: MdHealthAndSafety,
     path: "/HealthInsurance",
   },
   {
     id: 2,
     title: "Car Insurance",
-    icon: MdHealthAndSafety,
+    icon: FaCar,
     path: "/CarInsurance",
   },
 ];

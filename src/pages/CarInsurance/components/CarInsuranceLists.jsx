@@ -112,9 +112,7 @@ const CarInsuranceLists = () => {
                       <th
                         key={column}
                         className={`px-4 py-2 border border-gray-500 whitespace-nowrap ${
-                          column === "Age"
-                            ? "cursor-pointer hover:bg-gray-600"
-                            : ""
+                          column === "Age" ? "cursor-pointer" : ""
                         }`}
                         onClick={column === "Age" ? handleSort : undefined}
                       >
