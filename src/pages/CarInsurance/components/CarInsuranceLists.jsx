@@ -1,12 +1,12 @@
-import { useState } from "react";
 import PreLoader from "components/common/PreLoader";
 import ErrorPage from "components/ErrorPage";
 import useFetch from "hooks/useFetch";
+import { useState } from "react";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 
-const HomeInsuranceLists = () => {
+const CarInsuranceLists = () => {
   const { data, loading, error } = useFetch("api/insurance/forms/submissions");
-  const [selectedInsuranceType, setSelectedInsuranceType] = useState("Home");
+  const [selectedInsuranceType, setSelectedInsuranceType] = useState("Car");
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState(null);
   const [visibleColumns, setVisibleColumns] = useState(new Set());
@@ -170,4 +170,4 @@ const HomeInsuranceLists = () => {
   );
 };
 
-export default HomeInsuranceLists;
+export default CarInsuranceLists;

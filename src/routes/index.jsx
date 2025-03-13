@@ -9,6 +9,18 @@ const HomeInsuranceForm = lazy(() =>
 const HomeInsuranceLists = lazy(() =>
   import("pages/HomeInsurance/components/HomeInsuranceLists")
 );
+const CarInsuranceForm = lazy(() =>
+  import("pages/CarInsurance/components/CarInsuranceForm")
+);
+const CarInsuranceLists = lazy(() =>
+  import("pages/CarInsurance/components/CarInsuranceLists")
+);
+const HealthInsuranceForm = lazy(() =>
+  import("pages/HealthInsurance/components/HealthInsuranceForm")
+);
+const HealthInsuranceLists = lazy(() =>
+  import("pages/HealthInsurance/components/HealthInsuranceLists")
+);
 
 const mainRoutes = [
   {
@@ -40,6 +52,26 @@ const mainRoutes = [
     path: "/HomeInsuranceList",
     title: "HomeInsuranceList",
     component: HomeInsuranceLists,
+  },
+  {
+    path: "/HealthInsuranceForm",
+    title: "HealthInsuranceForm",
+    component: HealthInsuranceForm,
+  },
+  {
+    path: "/HealthInsuranceList",
+    title: "HealthInsuranceList",
+    component: HealthInsuranceLists,
+  },
+  {
+    path: "/CarInsuranceForm",
+    title: "CarInsuranceForm",
+    component: CarInsuranceForm,
+  },
+  {
+    path: "/CarInsuranceList",
+    title: "CarInsuranceList",
+    component: CarInsuranceLists,
   },
 ];
 

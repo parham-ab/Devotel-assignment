@@ -5,20 +5,22 @@ import mainRoutes from "routes";
 
 const App = () => {
   return (
-    <Routes>
-      {mainRoutes?.map((route) => (
-        <Route
-          key={route?.title}
-          path={route?.path}
-          element={
-            <Suspense fallback={<PreLoader />}>
-              <route.component />
-            </Suspense>
-          }
-        />
-      ))}
-      <Route path="/*" element={<Navigate to="/" />} />
-    </Routes>
+    <>
+      <Routes>
+        {mainRoutes?.map((route) => (
+          <Route
+            key={route?.title}
+            path={route?.path}
+            element={
+              <Suspense fallback={<PreLoader />}>
+                <route.component />
+              </Suspense>
+            }
+          />
+        ))}
+        <Route path="/*" element={<Navigate to="/" />} />
+      </Routes>
+    </>
   );
 };
 
