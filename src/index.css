@@ -7,12 +7,12 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
   appearance: none;
-  border: solid 1px #005969;
+  border: solid 1px #2c3166;
   transition: all 0.3s;
   &:checked {
     border-radius: 100%;
     border: none;
-    background-color: #005969;
+    background-color: #383f7e;
     transition: all 0.3s;
   }
 }
@@ -23,11 +23,11 @@ input[type="radio"] {
   width: 15px;
   height: 15px;
   appearance: none;
-  border: solid 1px #005969;
+  border: solid 1px #4952b8;
   display: inline-block;
   position: relative;
   &:checked {
     border: none;
-    background-color: #005969;
+    background-color: #343a79;
   }
 }
