@@ -5,7 +5,6 @@ const useFetch = (endpoint, options = {}) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -23,10 +22,8 @@ const useFetch = (endpoint, options = {}) => {
         setLoading(false);
       }
     };
-
     fetchData();
   }, [endpoint, JSON.stringify(options)]);
-
   return { data, loading, error };
 };
 

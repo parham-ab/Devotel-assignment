@@ -14,6 +14,7 @@ const HomeInsuranceForm = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onChange" });
   const countryValue = watch("home_address.country");
@@ -80,6 +81,7 @@ const HomeInsuranceForm = () => {
       if (!response.ok) throw new Error("Failed to submit");
       const result = await response.json();
       toast.success(result?.message || "Submission successful");
+      reset();
     } catch (error) {
       toast.error(error?.message || "Submission failed");
     }

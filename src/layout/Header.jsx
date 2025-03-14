@@ -5,13 +5,11 @@ import headerMenu from "constants/headerMenu";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <header className="flex items-center justify-between p-4 bg-gray-900 text-white select-none">
       <Link to={"/"} className="text-xl font-bold">
         Insurance Application
       </Link>
-
       <nav className="hidden md:flex gap-6">
         {headerMenu.map((item) => (
           <Link key={item.id} to={item.link} className="hover:text-gray-300">
@@ -19,18 +17,15 @@ const Header = () => {
           </Link>
         ))}
       </nav>
-
       <button onClick={() => setIsOpen(true)} className="md:hidden">
         <IoMenu className="w-8 h-8" />
       </button>
-
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity ${
+        className={`fixed inset-0 z-50 transition-opacity ${
           isOpen ? "opacity-100 visible" : "opacity-0 invisible"
         }`}
         onClick={() => setIsOpen(false)}
       ></div>
-
       <aside
         className={`fixed top-0 right-0 w-64 h-full bg-gray-800 text-white shadow-lg z-50 transform transition-transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -42,7 +37,6 @@ const Header = () => {
             <IoClose className="w-8 h-8" />
           </button>
         </div>
-
         <nav className="flex flex-col gap-4 p-4">
           {headerMenu.map((item) => (
             <Link

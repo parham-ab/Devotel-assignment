@@ -10,7 +10,6 @@ const HomeInsuranceLists = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortOrder, setSortOrder] = useState(null);
   const [visibleColumns, setVisibleColumns] = useState(new Set());
-
   if (loading) return <PreLoader />;
   if (error) return <ErrorPage />;
 

@@ -14,6 +14,7 @@ const CarInsuranceForm = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onChange" });
   useEffect(() => {
@@ -40,6 +41,7 @@ const CarInsuranceForm = () => {
       if (!response.ok) throw new Error("Submission failed");
       const result = await response.json();
       toast.success(result?.message || "Application submitted successfully");
+      reset();
     } catch (error) {
       toast.error(error?.message || "Failed to submit application");
     }

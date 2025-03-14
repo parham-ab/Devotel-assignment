@@ -14,6 +14,7 @@ const HealthInsuranceForm = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({ mode: "onChange" });
   const countryValue = watch("country");
@@ -64,6 +65,7 @@ const HealthInsuranceForm = () => {
       if (!response.ok) throw new Error("Submission failed");
       const result = await response.json();
       toast.success(result?.message || "Application submitted successfully");
+      reset();
     } catch (error) {
       toast.error(error?.message || "Failed to submit application");
     }
