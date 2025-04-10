@@ -132,5 +132,5 @@ This project is licensed under the MIT License.
 Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ## Contact
-For any inquiries, reach out to [Your Email] or open an issue in the repository.
+For any inquiries, reach out to parham.abg1@gmail.com or open an issue in the repository.
 
