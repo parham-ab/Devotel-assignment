@@ -28,7 +28,7 @@ const HealthInsuranceForm = () => {
       if (form) {
         setFormFields(form.fields);
       } else {
-        console.warn("Health insurance form not found in data:", data);
+        toast.error("Health insurance form not found in data");
       }
     }
   }, [data]);
@@ -54,7 +54,7 @@ const HealthInsuranceForm = () => {
       }
     };
     fetchStates();
-  }, [countryValue, BASE_URL]);
+  }, [countryValue]);
   const onSubmit = async (formData) => {
     try {
       const response = await fetch(`${BASE_URL}/api/insurance/forms/submit`, {
@@ -81,8 +81,7 @@ const HealthInsuranceForm = () => {
       required: field.required && `required`,
     };
     const options = field.id === "state" ? stateOptions : field.options || [];
-    const inputStyles =
-      "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500";
+
     return (
       <div key={field.id} className="flex flex-col space-y-2">
         <label className="font-semibold text-gray-700">{field.label}</label>
@@ -90,14 +89,14 @@ const HealthInsuranceForm = () => {
           <input
             type="text"
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
           />
         )}
         {field.type === "date" && (
           <input
             type="date"
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
           />
         )}
         {field.type === "radio" && (
@@ -118,7 +117,7 @@ const HealthInsuranceForm = () => {
         {field.type === "select" && (
           <select
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
             disabled={
               field.id === "state" && !stateOptions.length && countryValue
             }

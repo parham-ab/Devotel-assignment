@@ -27,7 +27,7 @@ const CarInsuranceForm = () => {
       if (form) {
         setFormFields(form.fields);
       } else {
-        console.warn("Car insurance form not found in data:", data);
+        toast.error("Car insurance form not found in data");
       }
     }
   }, [data]);
@@ -69,8 +69,7 @@ const CarInsuranceForm = () => {
       }),
     };
     const options = field.options || [];
-    const inputStyles =
-      "border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500";
+
     return (
       <div key={field.id} className="flex flex-col space-y-2">
         <label className="font-semibold text-gray-700">{field.label}</label>
@@ -78,14 +77,14 @@ const CarInsuranceForm = () => {
           <input
             type="text"
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
           />
         )}
         {field.type === "number" && (
           <input
             type="number"
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
           />
         )}
         {field.type === "radio" && (
@@ -106,7 +105,7 @@ const CarInsuranceForm = () => {
         {field.type === "select" && (
           <select
             {...register(field.id, validationRules)}
-            className={inputStyles}
+            className={"inputStyles"}
           >
             <option value="">Select {field.label}</option>
             {options.map((option) => (

@@ -1,5 +1,7 @@
 @import "tailwindcss";
-
+.inputStyles {
+  @apply border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
 input[type="checkbox"] {
   width: fit-content;
   border-radius: 30%;

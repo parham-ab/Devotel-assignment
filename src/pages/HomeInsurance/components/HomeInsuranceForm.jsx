@@ -70,7 +70,7 @@ const HomeInsuranceForm = () => {
       }
     };
     fetchStates();
-  }, [countryValue, BASE_URL]);
+  }, [countryValue]);
   const onSubmit = async (formData) => {
     try {
       const response = await fetch(`${BASE_URL}/api/insurance/forms/submit`, {
