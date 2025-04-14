@@ -60,9 +60,7 @@ const HomeInsuranceForm = () => {
         const states = await response.json();
         setDynamicOptions((prev) => ({
           ...prev,
-          "home_address.state": Array.isArray(states)
-            ? states
-            : states?.states || [],
+          "home_address.state": states?.states || [],
         }));
       } catch (err) {
         toast.error("Could not fetch states!");

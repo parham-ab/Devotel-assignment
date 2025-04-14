@@ -44,9 +44,7 @@ const HealthInsuranceForm = () => {
         );
         if (!response.ok) throw new Error("Failed to fetch states");
         const statesData = await response.json();
-        const statesArray = Array.isArray(statesData)
-          ? statesData
-          : statesData?.states || [];
+        const statesArray = statesData?.states || [];
         setStateOptions(statesArray);
       } catch (err) {
         console.error("Error fetching states:", err);
